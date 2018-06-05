@@ -1,0 +1,25 @@
+[{
+  "id": "T01",
+  "name": "曲建军",
+  "gender": "男",
+  "age": 21,
+  "progress": 1,
+  "level": "platinum",
+  "current": false
+},{
+  "id": "T02",
+  "name": "秦舒畅",
+  "gender": "女",
+  "age": 19,
+  "progress": 3,
+  "level": "gold",
+  "current": false
+},{
+  "id": "T03",
+  "name": "姚文锋",
+  "gender": "男",
+  "age": 31,
+  "progress": 2,
+  "level": "silver",
+  "current": false
+}]

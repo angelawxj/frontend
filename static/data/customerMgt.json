@@ -1,0 +1,72 @@
+[{
+  "id": "C01",
+  "name": "北京",
+  "age": 21,
+  "level": "platinum",
+  "post": "",
+  "company": "",
+  "seatHobby": "",
+  "foodHobby": "",
+  "product": "机场接送",
+  "remark": false,
+  "children":[
+      	{
+      		"id": "1",
+      		"name":"李洁1",
+      		"job":"工贸负责人"
+      	},
+      	{
+      		"id": "2",
+      		"name":"李洁2",
+      		"job":"工贸负责人"
+      	}
+      ]
+},{
+  "id": "C02",
+  "name": "上海",
+  "age": 19,
+  "gender": "女",
+  "level": "gold",
+  "post": "",
+  "company": "",
+  "seatHobby": "",
+  "foodHobby": "",
+  "product": "出行秘书",
+  "remark": false
+},{
+  "id": "C03",
+  "name": "广州",
+  "age": 31,
+  "gender": "男",
+  "level": "silver",
+  "post": "",
+  "company": "深圳市信维通信股份有限公司",
+  "seatHobby": "",
+  "foodHobby": "",
+  "product": "机场接送",
+  "remark": true
+},{
+  "id": "C04",
+  "name": "杭州",
+  "gender": "女",
+  "age": 29,
+  "level": "gold",
+  "post": "",
+  "company": "",
+  "seatHobby": "",
+  "foodHobby": "",
+  "product": "",
+  "remark": false
+},{
+  "id": "T05",
+  "name": "深圳",
+  "gender": "男",
+  "age": 22,
+  "level": "silver",
+  "post": "",
+  "company": "",
+  "seatHobby": "",
+  "foodHobby": "",
+  "product": "",
+  "remark": false
+}]

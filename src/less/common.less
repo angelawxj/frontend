@@ -1,0 +1,196 @@
+@color-theme: #e60000;
+@color-theme-2: #d10f0f;
+@color-gold: #f2c056;
+@color-silver: #c0c0c0;
+@color-platinum: #e7e7e7;
+@font-size-normal: 14px;
+@font-size-small: 12px;
+@font-size-large: 16px;
+@font-color-normal: #333;
+@font-color-gray: #999;
+@font-color-white: white;
+@border-color-normal: #eee;
+@line-height-normal: 21px;
+@color-default: #ef4f4f;
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: @font-size-normal;
+  color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.default{
+    background-color: @color-default;
+        -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 4px;
+    border: 0;
+    box-sizing: border-box;
+    color: inherit;
+    display: block;
+    font-size: 18px;
+    height: 41px;
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+ul, li {
+  list-style-type: none;
+}
+.clearfix:after,.clearfix:before {
+  display: table;
+  content: ' ';
+}
+.clearfix:after{
+  clear: both;
+}
+.nav-sub {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: @color-theme-2;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 17px;
+  color: @font-color-white;
+  font-weight: bold;
+  .nav-sub-btn {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    color: @font-color-white;
+  }
+  .nav-sub-btn.pull-left {
+    float: left;
+  }
+  .nav-sub-btn.pull-right {
+    float: right;
+  }
+}
+.pull-to-wrap {
+  position:absolute;
+  width: 100%;
+  left: 0;
+  top: 44px;
+  bottom: 0;
+  background-color: white;
+}
+.gold {
+  color: @color-gold;
+}
+.silver {
+  color: @color-silver;
+}
+.platinum {
+  color: @color-platinum;
+}
+
+.mint-button {
+  height: 32px;
+  font-size: @font-size-normal;
+  display: block;
+  width: 100%;
+}
+.mint-msgbox-confirm {
+  color: black;
+}
+.v-modal {
+  height: auto;
+  top: 88px;
+  bottom: 0;
+  opacity: .1;
+}
+#pop .v-modal{
+  top:0px;
+  opacity: .6;
+}
+.mint-cell {
+  background-image: none;
+}
+.list>li:last-child .mint-cell {
+  background-image: -webkit-linear-gradient(bottom, #d9d9d9, #d9d9d9 50%, transparent 50%);
+  background-image: linear-gradient(0deg, #d9d9d9, #d9d9d9 50%, transparent 50%);
+}
+
+/* reset input & textarea */
+input {
+  line-height: normal
+}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
+  height: auto
+}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+textarea {
+  overflow: auto
+}
+textarea {
+  font-family: 'Helvetica Neue',Helvetica,sans-serif;
+  font-size: @font-size-normal;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent
+}
+input:focus,textarea:focus {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-modify: read-write-plaintext-only
+}
+input[type=color],input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],textarea {
+  line-height: @line-height-normal;
+  height: auto;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  -webkit-user-select: text;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 3px;
+  outline: 0;
+  background-color: #fff;
+  -webkit-appearance: none;
+  font-size: @font-size-normal;
+}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none
+}
+
+input[type=search] {
+  font-size: @font-size-normal;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 34px;
+  text-align: center;
+  border: 0;
+  border-radius: 6px;
+  background-color: rgba(0,0,0,.1)
+}
+
+input[type=search]:focus {
+  text-align: left
+}
+
+textarea {
+  height: auto;
+  resize: none
+}
+.fa-birthday-cake{
+    color: #f2c056;
+}
+
+//.card1{background-image: url("../customer_card1.png");}
+//.card01{background-image: url("../assets/customer_card1.png");}
+//.card02{background-image: url("../assets/customer_card2.png");}
+//.card03{background-image: url("../assets/customer_card3.png");}
+//.card04{background-image: url("../assets/customer_card4.png");}
+//.card05{}
+//.birht{background-image: url("../assets/birth.png");}
+//.card01{background-image: url("../../assets/customer_card1.png");}
