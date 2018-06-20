@@ -22,12 +22,15 @@
       <ul class="list">
       	
       	
-        <li v-for="item in state.data">
+        <li v-for="(item,index) in state.data">
         	<img :src= "item.img_url">
           <p>
             <label>{{ item.name }}</label>
             <span>作者：{{item.author}}</span>
           </p>
+          <a class="star"  :class="{redstar: arr.indexOf(index) !== -1}" @click="star(index)" :data-select ="isselect">
+        		<i class="fa fa-star"></i>
+      		</a>
         </li>
       </ul>
       <template slot="bottom-block" slot-scope="props">
@@ -51,6 +54,7 @@
 import PullTo from 'vue-pull-to'
 import TaskProgress from '@/components/TaskProgress'
 import {mapState, mapActions} from 'vuex'
+import { MessageBox, Toast } from 'mint-ui'
 
 export default {
   name: 'task',
@@ -73,6 +77,9 @@ export default {
       }],
       iconLink: '',
       index:'0',
+      isActive:'',
+      isselect:0,
+      arr:[],
     };
   },
   methods: {
@@ -82,8 +89,8 @@ export default {
         loaded: loaded
       })
     },
-    img(){
-    	
+    star(index){
+    	this.arr.push(index)
     },
     loadmore(loaded) {
       this.loadMoreTask({
@@ -131,12 +138,27 @@ export default {
   .img{
   	padding: 30px;
   }
+  
   .list li {
     overflow: hidden;
     height: auto;
     line-height: 12px;
     border-top: 1px solid #eee;
     padding: 10px;
+    position: relative;
+    .star{
+  		position: absolute;
+      height: 0;
+      right: 15px;
+      bottom: 25px;
+  	}
+  	.redstar{
+  		position: absolute;
+      height: 0;
+      right: 15px;
+      bottom: 25px;
+      color: #e60000;
+  	}
     img{
     	float: left;
     	width: 150px;

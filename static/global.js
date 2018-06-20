@@ -40,10 +40,9 @@ function ajax(url, params, successCallback, errorCallback, axios)
 	  }
 	});
 	//生成环境,测试环境地址切换
-	//var urlPrefix = "https://cdms-mobile.shenzhenair.com:8082";//生产环境
-	var urlPrefix = "http://127.0.0.1:8000";//测试环境
-	//var urlPrefix = "http://10.28.86.20:8080";//家丽本地
-	//var urlPrefix = "http://10.28.87.14:8080";//哥本地
+//	var urlPrefix = "http://13.59.166.217";//生产环境
+	var urlPrefix = "http://127.0.0.1:8000/";//本地环境
+
 	
 	//mas地址
 //	var urlmas = "http://10.12.102.225:8088/zpzy";//测试

@@ -10,14 +10,14 @@
           <a :class="[linkIndex == 0 ? 'active' : '']" @click="linkTo(0)" href="#/task">任务</a>
         </li>-->
         <li>
-          <a :class="[linkIndex == 1 ? 'active' : '']" @click="linkTo(0)" href="#/task">wxj图书馆</a>
-        </li>
-        <!--<li>
-          <a :class="[linkIndex == 2 ? 'active' : '']" @click="linkTo(2)" href="#/personal">个人</a>
+          <a :class="[linkIndex == 1 ? 'active' : '']" @click="linkTo(1)" href="#/task">图书</a>
         </li>
         <li>
-          <a :class="[linkIndex == 3 ? 'active' : '']" @click="linkTo(3)" href="#/contact">通讯</a>
-        </li>-->
+          <a :class="[linkIndex == 2 ? 'active' : '']" @click="linkTo(2)" href="#/search">经验</a>
+        </li>
+        <li>
+          <a :class="[linkIndex == 3 ? 'active' : '']" @click="linkTo(3)" href="#/personal">收藏</a>
+        </li>
       </ul>
     </div>
   <a class="more" href="#/other" @click="linkToOther" v-show="!state.otherFlag"><i class="fa fa-ellipsis-h fa-lg"></i></a>

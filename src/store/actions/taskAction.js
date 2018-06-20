@@ -23,7 +23,7 @@ export const taskAction = {
     })
   },
   refreshTask ({ commit }, {params, loaded}) {
-	ajax(urlPrefix , params,function(res){	
+	ajax(urlPrefix, params,function(res){	
 		console.log(res);
 	   	commit(TASK_DATA_REFRESH, res)
     },function(err){
