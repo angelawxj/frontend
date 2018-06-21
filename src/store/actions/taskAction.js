@@ -2,9 +2,10 @@
  * Created by youmc on 2017/1/16.
  */
 
-import { TASK_DATA_LOAD_MORE, TASK_DATA_REFRESH, TASK_DATA_PREVIOUS, TASK_DATA_SAVE, TASK_DATA_UPDATE } from '../constants/types'
+import { TASK_DATA_LOAD_MORE, TASK_DATA_REFRESH, TASK_DATA_PREVIOUS, TASK_DATA_SAVE, TASK_DATA_UPDATE, STAR_DATA_REFRESH} from '../constants/types'
 import axios from "axios"
 import { Toast } from 'mint-ui'
+import { Indicator } from 'mint-ui'
 
 export const taskAction = {
   loadMoreTask ({ commit }, {params, loaded}) {
@@ -23,9 +24,46 @@ export const taskAction = {
     })
   },
   refreshTask ({ commit }, {params, loaded}) {
-	ajax(urlPrefix, params,function(res){	
+	ajax(urlPrefix + 'post/','GET', params,function(res){	
 		console.log(res);
 	   	commit(TASK_DATA_REFRESH, res)
+    },function(err){
+    	Toast({
+          message: err,
+          position: 'bottom',
+          duration: 2000
+        })
+    }); 
+  },
+  refreshStar({ commit }, {params, loaded}) {
+	ajax(urlPrefix+'star/','GET', params,function(res){	
+		console.log(res);
+	   	commit(STAR_DATA_REFRESH, res)
+    },function(err){
+    	Toast({
+          message: err,
+          position: 'bottom',
+          duration: 2000
+        })
+    }); 
+  },
+   addStar({ commit }, {params, loaded}) {
+	ajax(urlPrefix+'star/','POST', params,function(res){	
+		console.log(res);
+	   	
+    },function(err){
+    	Toast({
+          message: err,
+          position: 'bottom',
+          duration: 2000
+        })
+    }); 
+  },
+  deleteStar({ commit }, {id,refresh, loaded}) {
+	ajax(urlPrefix+'star/'+ id,'DELETE', '',function(res){	
+		console.log(res);
+	   	refresh()
+	   	Indicator.close();
     },function(err){
     	Toast({
           message: err,

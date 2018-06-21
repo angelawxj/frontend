@@ -20,16 +20,14 @@
       </template>
      
       <ul class="list">
-      	
-      	
         <li v-for="(item,index) in state.data">
         	<img :src= "item.img_url">
           <p>
             <label>{{ item.name }}</label>
             <span>作者：{{item.author}}</span>
           </p>
-          <a class="star"  :class="{redstar: arr.indexOf(index) !== -1}" @click="star(index)" :data-select ="isselect">
-        		<i class="fa fa-star"></i>
+          <a class="star"  :class="{redstar: arr.indexOf(index) !== -1}" @click="star(index,item.name, item.author,item.img_url)" :data-select ="isselect">
+        		<i class="fa fa-heart"></i>
       		</a>
         </li>
       </ul>
@@ -89,8 +87,12 @@ export default {
         loaded: loaded
       })
     },
-    star(index){
+    star(index,name,author,img){
     	this.arr.push(index)
+    	this.addStar({
+      	params: {"name":name,"author":author,"img_url":img},
+      	loaded: null
+    	});
     },
     loadmore(loaded) {
       this.loadMoreTask({
@@ -109,7 +111,8 @@ export default {
     },
     ...mapActions([
       'loadMoreTask',
-      'refreshTask'
+      'refreshTask',
+      'addStar',
     ])
   },
   computed: {

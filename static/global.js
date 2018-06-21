@@ -2,7 +2,7 @@
 
 var ajaxTimeout = 50000;
 
-function ajax(url, params, successCallback, errorCallback, axios)
+function ajax(url, type, params, successCallback, errorCallback, axios)
 {
 //	    ajax({
 //	      url:url,
@@ -18,8 +18,8 @@ function ajax(url, params, successCallback, errorCallback, axios)
 //	    });
 	$.ajax({
 	  url: url,
-	  type:'get',
-	  data: '',
+	  type:type,
+	  data: params,
 	  dataType: 'json',
 	  success:function(data) {    
         successCallback(data);

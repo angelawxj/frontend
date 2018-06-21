@@ -9,7 +9,8 @@ import {taskMutation} from '../mutations/taskMutation'
 export const taskModule = {
   state: {
     data: [],
-    previous: []
+    previous: [],
+    star: [],
   },
   actions: taskAction,
   getters: taskGetter,
