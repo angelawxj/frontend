@@ -40,8 +40,8 @@ function ajax(url, type, params, successCallback, errorCallback, axios)
 	  }
 	});
 	//生成环境,测试环境地址切换
-//	var urlPrefix = "http://13.59.166.217";//生产环境
-	var urlPrefix = "http://127.0.0.1:8000/";//本地环境
+	var urlPrefix = "http://13.59.166.217/";//生产环境ec2-13-59-166-217.us-east-2.compute.amazonaws.com
+//	var urlPrefix = "http://127.0.0.1:8000/";//本地环境
 
 	
 	//mas地址

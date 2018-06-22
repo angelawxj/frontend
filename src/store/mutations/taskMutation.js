@@ -2,7 +2,7 @@
  * Created by youmc on 2017/1/16.
  */
 
-import { TASK_DATA_LOAD_MORE, TASK_DATA_REFRESH, TASK_DATA_PREVIOUS, TASK_DATA_SAVE, TASK_DATA_UPDATE, STAR_DATA_REFRESH} from '../constants/types'
+import { TASK_DATA_LOAD_MORE, TASK_DATA_REFRESH, TASK_DATA_PREVIOUS, TASK_DATA_SAVE, TASK_DATA_UPDATE, STAR_DATA_REFRESH, STAR_DATA_LOAD_MORE} from '../constants/types'
 
 export const taskMutation = {
   [TASK_DATA_LOAD_MORE] (state, data) {
@@ -19,6 +19,9 @@ export const taskMutation = {
   },
   [STAR_DATA_REFRESH] (state, data) {
     state.star = data
+  },
+  [STAR_DATA_LOAD_MORE] (state, data) {
+    state.star = state.star.concat(data)
   },
   
   [TASK_DATA_UPDATE] (state, record) {

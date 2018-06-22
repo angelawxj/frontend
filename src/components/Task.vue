@@ -1,6 +1,13 @@
 <template>
+	
   <div>
-    <pull-to
+  		
+
+      <div class="search">
+     		<input type="text" class="head" v-model="searchText">
+     		<i class="fa fa-search" @click="search"></i>
+     	</div>
+     	    <pull-to
       :top-load-method="refresh"
       :bottom-load-method="loadmore"
       @top-state-change="stateChange"
@@ -18,7 +25,6 @@
           {{ props.stateText }}
         </div>
       </template>
-     
       <ul class="list">
         <li v-for="(item,index) in state.data">
         	<img :src= "item.img_url">
@@ -26,7 +32,7 @@
             <label>{{ item.name }}</label>
             <span>作者：{{item.author}}</span>
           </p>
-          <a class="star"  :class="{redstar: arr.indexOf(index) !== -1}" @click="star(index,item.name, item.author,item.img_url)" :data-select ="isselect">
+          <a class="star"  :class="{redstar: (arr.indexOf(index) !== -1) || (item.heart == '1')}" @click="star(index,item.id, item.name, item.author,item.img_url)" :data-select ="isselect">
         		<i class="fa fa-heart"></i>
       		</a>
         </li>
@@ -78,6 +84,8 @@ export default {
       isActive:'',
       isselect:0,
       arr:[],
+      searchText:'',
+      currentPage:1,
     };
   },
   methods: {
@@ -87,16 +95,25 @@ export default {
         loaded: loaded
       })
     },
-    star(index,name,author,img){
+    search() {
+    	var name = this.searchText;
+      this.searchTask({
+        params: name,
+        loaded: null
+      })
+    },
+    star(index,id,name,author,img){
     	this.arr.push(index)
     	this.addStar({
-      	params: {"name":name,"author":author,"img_url":img},
+      	params: {"id":id,"name":name,"author":author,"img_url":img,"heart":'1'},
+      	id:id,
       	loaded: null
     	});
     },
     loadmore(loaded) {
+    	this.currentPage += 1
       this.loadMoreTask({
-        params: null,
+        params: this.currentPage,
         loaded: loaded
       })
     },
@@ -113,6 +130,7 @@ export default {
       'loadMoreTask',
       'refreshTask',
       'addStar',
+      'searchTask',
     ])
   },
   computed: {
@@ -141,7 +159,28 @@ export default {
   .img{
   	padding: 30px;
   }
-  
+  .search{
+  	display: block;
+  	background: #fff;
+  	position: fixed;
+  	width:100%;
+  	z-index: 100;
+  	.head{
+	  	width: 80%;
+	    margin: 10px;
+	    font-size: 14px;
+	    line-height: 1.42857143;
+	    color: #555;
+	    background-color: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	  }
+  }
+  .list{
+  	font-size: 16px;
+    padding-top: 53px;
+  }
   .list li {
     overflow: hidden;
     height: auto;

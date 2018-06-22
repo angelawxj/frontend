@@ -19,20 +19,20 @@
         </div>
       </template>
      
-      <ul class="list">
-        <li v-for="(item,index) in state.data">
+      <ul class="list" >
+        <li  v-for="(item,index) in state.data">
         	<img :src= "item.img_url">
           <p>
             <label>{{ item.name }}</label>
             <span>作者：{{item.author}}</span>
           </p>
-          <a class="star"  :class="{redstar: arr.indexOf(index) !== -1}" @click="Delete(index,item.id)" :data-select ="isselect">
+          <a class="star"  :class="{redstar: arr.indexOf(index) !== -1}" @click="Delete(index,item.id,item.name, item.author,item.img_url)" :data-select ="isselect">
         		<i class="fa fa-trash-o fa-lg"></i>
       		</a>
-      		<div>
+      		<!--<div>
 					 <textarea rows="10" v-model="text"></textarea>
 					 <file-reader @load="text = $event"></file-reader>
-					</div>
+					</div>-->
         </li>
       </ul>
       <template slot="bottom-block" slot-scope="props">
@@ -90,18 +90,19 @@ export default {
       isActive:'',
       isselect:0,
       arr:[],
-      text: ""
+      text: "",
+      currentPage:1,
     };
   },
   methods: {
     refresh(loaded) {
      	this.refreshStar({
       	params: '',
-      	loaded: null
+      	loaded: loaded
     	});
     },
    
-    Delete(index,id){
+    Delete(index,id,name,author,img){
     	
     	 MessageBox({
         title: '提示',
@@ -117,6 +118,7 @@ export default {
 				});
         this.deleteStar({
       		id: id,
+      		params:{"id":id,"name":name,"author":author,"img_url":img,"heart":'0'},
       		refresh:this.refresh,
       		loaded: null
     		});
@@ -124,8 +126,9 @@ export default {
     	
     },
     loadmore(loaded) {
-      this.loadMoreTask({
-        params: null,
+    	this.currentPage += 1
+      this.loadMoreStar({
+        params: this.currentPage,
         loaded: loaded
       })
     },
@@ -139,7 +142,7 @@ export default {
       }
     },
     ...mapActions([
-      'loadMoreTask',
+      'loadMoreStar',
       'refreshTask',
       'refreshStar',
       'deleteStar'
