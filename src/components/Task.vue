@@ -1,8 +1,6 @@
 <template>
 	
   <div>
-  		
-
       <div class="search">
      		<input type="text" class="head" v-model="searchText">
      		<i class="fa fa-search" @click="search"></i>
@@ -26,7 +24,7 @@
         </div>
       </template>
       <ul class="list">
-        <li v-for="(item,index) in state.data">
+        <li v-for="(item,index) in state.data" @click="reader">
         	<img :src= "item.img_url">
           <p>
             <label>{{ item.name }}</label>
@@ -94,6 +92,9 @@ export default {
         params: null,
         loaded: loaded
       })
+    },
+    reader() {
+    	this.$router.push('/search/customer')
     },
     search() {
     	var name = this.searchText;
